@@ -568,25 +568,36 @@ function Index() {
             action="View All Programs"
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {programs.map((p) => (
-              <article
-                key={p.title}
-                className="group flex flex-col rounded-2xl border border-black/8 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-civic/10"
-              >
-                <span className="inline-flex w-fit rounded-full bg-teal/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-teal">
-                  {p.tag}
-                </span>
-                <h3 className="mt-4 text-lg font-bold text-civic">{p.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/70">{p.body}</p>
-                <a
-                  href="#"
-                  onClick={stop}
-                  className={`mt-5 inline-flex items-center gap-1.5 rounded-sm text-sm font-semibold text-civic hover:text-sunset-orange ${focusRing}`}
-                >
-                  Read more
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </a>
-              </article>
+            {programs.map((p, i) => (
+              <Reveal key={p.title} delay={i * 80}>
+                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/8 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-civic/15">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={p.img}
+                      alt={p.alt}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <span className="absolute left-4 top-4 inline-flex rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-civic backdrop-blur-sm">
+                      {p.tag}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="text-lg font-bold text-civic">{p.title}</h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/70">{p.body}</p>
+                    <a
+                      href="#"
+                      onClick={stop}
+                      className={`mt-5 inline-flex items-center gap-1.5 rounded-sm text-sm font-semibold text-civic hover:text-sunset-orange ${focusRing}`}
+                    >
+                      Read more
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </a>
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -944,6 +955,15 @@ function Index() {
                 Learn about our governance <ArrowRight className="size-4" aria-hidden="true" />
               </a>
             </div>
+            <div className="space-y-4">
+            <img
+              src={aboutBoard}
+              alt="SJCOG Board of Directors meeting in a civic council chamber"
+              loading="lazy"
+              width={1024}
+              height={1024}
+              className="h-64 w-full rounded-2xl object-cover shadow-lg shadow-civic/10 sm:h-72"
+            />
             <dl className="grid grid-cols-2 gap-4">
               {[
                 { k: "9", v: "Member jurisdictions" },
