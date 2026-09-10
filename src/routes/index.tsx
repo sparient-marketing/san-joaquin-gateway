@@ -597,17 +597,17 @@ function Index() {
               >
                 <article className="group overflow-hidden rounded-2xl border border-black/8 bg-sand shadow-sm transition-shadow hover:shadow-lg lg:col-span-2 lg:row-span-2">
                   <div
-                    className={`h-56 w-full bg-gradient-to-br ${news[0].grad} lg:h-72`}
+                    className={`h-56 w-full bg-gradient-to-br ${lead.grad} lg:h-72`}
                     role="img"
                     aria-label="Photograph placeholder: SR 99/120 Connector construction at sunset"
                   />
                   <div className="p-6">
                     <div className="flex flex-wrap items-center gap-3 text-xs font-semibold">
-                      <span className="rounded-full bg-civic/10 px-3 py-1 text-civic">{news[0].category}</span>
-                      <span className="text-foreground/55">{news[0].date}</span>
+                      <span className="rounded-full bg-civic/10 px-3 py-1 text-civic">{lead.category}</span>
+                      <span className="text-foreground/55">{lead.date}</span>
                     </div>
-                    <h3 className="mt-3 text-2xl font-bold leading-snug text-civic">{news[0].title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-foreground/70">{news[0].excerpt}</p>
+                    <h3 className="mt-3 text-2xl font-bold leading-snug text-civic">{lead.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/70">{lead.excerpt}</p>
                     <a
                       href="#"
                       onClick={stop}
