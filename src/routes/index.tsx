@@ -248,6 +248,7 @@ function Index() {
   const [selectedDay, setSelectedDay] = useState(17);
 
   const meetingDays = meetings.map((m) => m.day);
+  const lead = news[0]!;
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground antialiased">
