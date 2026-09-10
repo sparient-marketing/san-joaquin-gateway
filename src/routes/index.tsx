@@ -977,6 +977,7 @@ function Index() {
                 </div>
               ))}
             </dl>
+            </div>
           </div>
         </section>
 
