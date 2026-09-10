@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Search,
   Users,
@@ -32,6 +32,18 @@ import {
   Phone,
 } from "lucide-react";
 import logo from "@/assets/sjcog-logo.asset.json";
+import heroRegion from "@/assets/hero-region.jpg";
+import progRtp from "@/assets/prog-rtp.jpg";
+import progConnector from "@/assets/prog-connector.jpg";
+import progTransit from "@/assets/prog-transit.jpg";
+import progDibs from "@/assets/prog-dibs.jpg";
+import progEzhub from "@/assets/prog-ezhub.jpg";
+import progFtip from "@/assets/prog-ftip.jpg";
+import newsHousing from "@/assets/news-housing.jpg";
+import newsRail from "@/assets/news-rail.jpg";
+import newsMobility from "@/assets/news-mobility.jpg";
+import newsEngagement from "@/assets/news-engagement.jpg";
+import aboutBoard from "@/assets/about-board.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -93,31 +105,43 @@ const programs = [
   {
     title: "2022–2046 RTP/SCS",
     tag: "Long-Range Planning",
+    img: progRtp,
+    alt: "Regional planners reviewing a transportation map",
     body: "The Regional Transportation Plan and Sustainable Communities Strategy sets the 25-year blueprint for how people and goods move through San Joaquin County.",
   },
   {
     title: "SR 99/120 Connector Project",
     tag: "Capital Project",
+    img: progConnector,
+    alt: "Highway interchange under construction with cranes",
     body: "A multi-phase interchange reconstruction in Manteca improving safety, freight reliability, and daily commutes at one of the region's busiest connections.",
   },
   {
     title: "Transit Planning",
     tag: "Mobility",
+    img: progTransit,
+    alt: "Riders boarding a city bus at a transit stop",
     body: "Coordinated planning with local operators, including the Regional Transit Systems Plan and support for intercity and commuter rail service expansion.",
   },
   {
     title: "dibs",
     tag: "Rideshare & Smart Travel",
+    img: progDibs,
+    alt: "Cyclists and carpoolers at a park-and-ride lot",
     body: "SJCOG's commuter program offering carpool matching, vanpool subsidies, bike incentives, and rewards for choosing alternatives to driving alone.",
   },
   {
     title: "EZHub",
     tag: "Digital Tools",
+    img: progEzhub,
+    alt: "Person using an online mapping dashboard on a laptop",
     body: "A one-stop online portal for jurisdictions and consultants to submit, track, and manage regional project data and funding requests.",
   },
   {
     title: "FTIP",
     tag: "Programming",
+    img: progFtip,
+    alt: "Road crew repaving a street",
     body: "The Federal Transportation Improvement Program lists every federally funded surface transportation project in the region over a four-year cycle.",
   },
 ];
@@ -129,7 +153,8 @@ const news = [
     category: "Awards",
     excerpt:
       "The regional partnership behind the SR 99/120 Connector was recognized for innovative project delivery and interagency collaboration.",
-    grad: "from-sunset-orange to-sunset-amber",
+    img: progConnector,
+    alt: "SR 99/120 Connector interchange construction",
   },
   {
     title: "Nearly $12 million to be used to unlock 421 affordable homes across San Joaquin County",
@@ -137,7 +162,8 @@ const news = [
     category: "Housing",
     excerpt:
       "Regional Early Action Planning funds will support infrastructure and predevelopment work for affordable housing in five jurisdictions.",
-    grad: "from-teal to-civic",
+    img: newsHousing,
+    alt: "Newly built homes on a California residential street",
   },
   {
     title: "SJCOG Board OKs $10 million investment in Valley Link to expand transportation options",
@@ -145,7 +171,8 @@ const news = [
     category: "Board Action",
     excerpt:
       "The Board approved a funding commitment advancing passenger rail service between the Tri-Valley and San Joaquin County.",
-    grad: "from-civic to-sunset-indigo",
+    img: newsRail,
+    alt: "Passenger train at a station platform",
   },
   {
     title: "Coming soon: San Joaquin's first clean mobility hub",
@@ -153,7 +180,8 @@ const news = [
     category: "Air Quality",
     excerpt:
       "The hub will combine EV charging, e-bike access, and transit connections at a single neighborhood-scale location.",
-    grad: "from-sunset-amber to-teal",
+    img: newsMobility,
+    alt: "EV charging station with bikes and a bus shelter",
   },
   {
     title: "Help SJCOG plan for region's transportation future",
@@ -161,7 +189,8 @@ const news = [
     category: "Public Engagement",
     excerpt:
       "Residents are invited to share priorities for the next Regional Transportation Plan through an online survey and open houses.",
-    grad: "from-sunset-indigo to-civic-light",
+    img: newsEngagement,
+    alt: "Residents at a community planning workshop",
   },
 ];
 
@@ -433,22 +462,29 @@ function Index() {
       <main id="main">
         {/* Hero */}
         <section className="relative overflow-hidden">
+          <img
+            src={heroRegion}
+            alt="Aerial view of a San Joaquin County highway interchange and farmland at sunset"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 size-full scale-105 object-cover"
+          />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[linear-gradient(120deg,#4B3B78_0%,#094E77_38%,#2C7C9C_62%,#D9782D_88%,#E8A33D_100%)] opacity-[0.13]"
+            className="absolute inset-0 bg-[linear-gradient(120deg,rgba(75,59,120,0.92)_0%,rgba(9,78,119,0.88)_45%,rgba(217,120,45,0.72)_100%)]"
           />
           <div
             aria-hidden="true"
             className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent"
           />
           <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 lg:py-28">
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-civic/20 bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-civic">
+            <p className="mb-5 inline-flex animate-fade-in items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm">
               Regional Planning Agency · Est. 1968
             </p>
-            <h1 className="text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-civic sm:text-5xl lg:text-6xl">
+            <h1 className="animate-fade-in text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-6xl">
               Planning transportation, housing, and habitat for the San Joaquin region.
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-pretty text-base leading-relaxed text-foreground/75 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-3xl animate-fade-in text-pretty text-base leading-relaxed text-white/90 sm:text-lg">
               SJCOG is the planning, financing, and coordinating agency for the San Joaquin
               region — a joint-powers authority representing Escalon, Lathrop, Lodi, Manteca,
               Mountain House, Ripon, San Joaquin County, Stockton, and Tracy.
@@ -457,7 +493,7 @@ function Index() {
               <a
                 href="#"
                 onClick={stop}
-                className={`inline-flex min-h-11 items-center gap-2 rounded-md bg-civic px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-civic-dark ${focusRing}`}
+                className={`inline-flex min-h-11 items-center gap-2 rounded-md bg-sunset-amber px-6 py-3 text-sm font-bold text-civic-dark shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white ${focusRing} focus-visible:ring-white focus-visible:ring-offset-civic`}
               >
                 <CalendarDays className="size-4" aria-hidden="true" />
                 View Agendas &amp; Minutes
@@ -465,7 +501,7 @@ function Index() {
               <a
                 href="#"
                 onClick={stop}
-                className={`inline-flex min-h-11 items-center gap-2 rounded-md border-2 border-civic px-6 py-3 text-sm font-semibold text-civic transition-colors hover:bg-civic/5 ${focusRing}`}
+                className={`inline-flex min-h-11 items-center gap-2 rounded-md border-2 border-white/70 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-civic ${focusRing} focus-visible:ring-white focus-visible:ring-offset-civic`}
               >
                 <Coins className="size-4" aria-hidden="true" />
                 Explore Measure K
@@ -532,25 +568,36 @@ function Index() {
             action="View All Programs"
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {programs.map((p) => (
-              <article
-                key={p.title}
-                className="group flex flex-col rounded-2xl border border-black/8 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-civic/10"
-              >
-                <span className="inline-flex w-fit rounded-full bg-teal/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-teal">
-                  {p.tag}
-                </span>
-                <h3 className="mt-4 text-lg font-bold text-civic">{p.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/70">{p.body}</p>
-                <a
-                  href="#"
-                  onClick={stop}
-                  className={`mt-5 inline-flex items-center gap-1.5 rounded-sm text-sm font-semibold text-civic hover:text-sunset-orange ${focusRing}`}
-                >
-                  Read more
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </a>
-              </article>
+            {programs.map((p, i) => (
+              <Reveal key={p.title} delay={i * 80}>
+                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/8 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-civic/15">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={p.img}
+                      alt={p.alt}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <span className="absolute left-4 top-4 inline-flex rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-civic backdrop-blur-sm">
+                      {p.tag}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="text-lg font-bold text-civic">{p.title}</h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/70">{p.body}</p>
+                    <a
+                      href="#"
+                      onClick={stop}
+                      className={`mt-5 inline-flex items-center gap-1.5 rounded-sm text-sm font-semibold text-civic hover:text-sunset-orange ${focusRing}`}
+                    >
+                      Read more
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </a>
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -597,11 +644,16 @@ function Index() {
                 className="mt-8 grid gap-6 lg:grid-cols-3"
               >
                 <article className="group overflow-hidden rounded-2xl border border-black/8 bg-sand shadow-sm transition-shadow hover:shadow-lg lg:col-span-2 lg:row-span-2">
-                  <div
-                    className={`h-56 w-full bg-gradient-to-br ${lead.grad} lg:h-72`}
-                    role="img"
-                    aria-label="Photograph placeholder: SR 99/120 Connector construction at sunset"
-                  />
+                  <div className="overflow-hidden">
+                    <img
+                      src={lead.img}
+                      alt={lead.alt}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:h-72"
+                    />
+                  </div>
                   <div className="p-6">
                     <div className="flex flex-wrap items-center gap-3 text-xs font-semibold">
                       <span className="rounded-full bg-civic/10 px-3 py-1 text-civic">{lead.category}</span>
@@ -622,12 +674,15 @@ function Index() {
                 {news.slice(1).map((n) => (
                   <article
                     key={n.title}
-                    className="flex gap-4 rounded-2xl border border-black/8 bg-sand p-4 shadow-sm transition-shadow hover:shadow-md"
+                    className="group flex gap-4 rounded-2xl border border-black/8 bg-sand p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                   >
-                    <div
-                      className={`hidden size-20 shrink-0 rounded-xl bg-gradient-to-br sm:block ${n.grad}`}
-                      role="img"
-                      aria-label={`Photograph placeholder for: ${n.title}`}
+                    <img
+                      src={n.img}
+                      alt={n.alt}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="hidden size-20 shrink-0 rounded-xl object-cover transition-transform duration-300 group-hover:scale-105 sm:block"
                     />
                     <div>
                       <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold">
@@ -900,6 +955,15 @@ function Index() {
                 Learn about our governance <ArrowRight className="size-4" aria-hidden="true" />
               </a>
             </div>
+            <div className="space-y-4">
+            <img
+              src={aboutBoard}
+              alt="SJCOG Board of Directors meeting in a civic council chamber"
+              loading="lazy"
+              width={1024}
+              height={1024}
+              className="h-64 w-full rounded-2xl object-cover shadow-lg shadow-civic/10 sm:h-72"
+            />
             <dl className="grid grid-cols-2 gap-4">
               {[
                 { k: "9", v: "Member jurisdictions" },
@@ -913,6 +977,7 @@ function Index() {
                 </div>
               ))}
             </dl>
+            </div>
           </div>
         </section>
 
@@ -1092,6 +1157,39 @@ function FooterColumn({ title, items }: { title: string; items: string[] }) {
           </li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`h-full transition-all duration-700 ease-out ${
+        shown ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+      }`}
+    >
+      {children}
     </div>
   );
 }
