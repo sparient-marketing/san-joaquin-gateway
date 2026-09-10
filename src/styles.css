@@ -61,10 +61,23 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@theme {
+  --font-sans:
+    "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-civic: #094e77;
+  --color-civic-dark: #06395a;
+  --color-civic-light: #0f6a9e;
+  --color-teal: #2c7c9c;
+  --color-sunset-orange: #d9782d;
+  --color-sunset-amber: #e8a33d;
+  --color-sunset-indigo: #4b3b78;
+  --color-sand: #f9f8f6;
+}
+
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.5rem;
+  --background: oklch(0.985 0.004 84);
+  --foreground: oklch(0.24 0.035 255);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
