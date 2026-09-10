@@ -396,7 +396,7 @@ function Index() {
             onClick={() => setMobileOpen((o) => !o)}
             className={`ml-auto inline-flex size-11 items-center justify-center rounded-md border border-civic/20 text-civic xl:hidden ${focusRing}`}
           >
-            {mobileOpen ? <Menu className="size-5" /> : <Menu className="size-5" />}
+            {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
 
