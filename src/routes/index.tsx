@@ -332,7 +332,7 @@ function Index() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-black/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
+      <header className="sticky top-0 z-50 border-b border-line bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70">
         <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
           <a
             href="#"
@@ -372,7 +372,7 @@ function Index() {
                       aria-haspopup="true"
                       aria-controls="programs-menu"
                       onClick={() => setProgramsOpen((o) => !o)}
-                      className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-foreground/85 transition-colors hover:bg-civic/5 hover:text-civic ${focusRing}`}
+                      className={`inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-civic/8 hover:text-civic ${focusRing}`}
                     >
                       Programs
                       <ChevronDown
@@ -385,7 +385,7 @@ function Index() {
                         id="programs-menu"
                         role="menu"
                         aria-label="Programs"
-                        className="absolute right-0 top-full w-[26rem] rounded-xl border border-black/10 bg-white p-2 shadow-xl shadow-civic/10"
+                        className="absolute right-0 top-full w-[26rem] rounded-2xl border border-line bg-white/95 p-2 shadow-float backdrop-blur-xl"
                       >
                         {programsMenu.map(({ label, icon: Icon }) => (
                           <a
@@ -407,7 +407,7 @@ function Index() {
                     <a
                       href="#"
                       onClick={stop}
-                      className={`inline-block rounded-md px-3 py-2 text-sm font-semibold text-foreground/85 transition-colors hover:bg-civic/5 hover:text-civic ${focusRing}`}
+                      className={`inline-block rounded-full px-3.5 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-civic/8 hover:text-civic ${focusRing}`}
                     >
                       {item}
                     </a>
@@ -461,7 +461,7 @@ function Index() {
 
       <main id="main">
         {/* Hero */}
-        <section className="relative overflow-hidden">
+        <section className="relative isolate overflow-hidden">
           <img
             src={heroRegion}
             alt="Aerial view of a San Joaquin County highway interchange and farmland at sunset"
@@ -471,83 +471,93 @@ function Index() {
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[linear-gradient(120deg,rgba(75,59,120,0.92)_0%,rgba(9,78,119,0.88)_45%,rgba(217,120,45,0.72)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(115%_120%_at_12%_8%,rgba(6,57,90,0.96)_0%,rgba(9,78,119,0.9)_38%,rgba(75,59,120,0.72)_68%,rgba(217,120,45,0.5)_100%)]"
           />
           <div
             aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent"
+            className="absolute inset-x-0 bottom-0 h-56 bg-[linear-gradient(to_top,rgba(6,57,90,0.9),transparent)]"
           />
-          <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 lg:py-28">
-            <p className="mb-5 inline-flex animate-fade-in items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm">
-              Regional Planning Agency · Est. 1968
-            </p>
-            <h1 className="animate-fade-in text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-6xl">
-              Planning transportation, housing, and habitat for the San Joaquin region.
-            </h1>
-            <p className="mx-auto mt-6 max-w-3xl animate-fade-in text-pretty text-base leading-relaxed text-white/90 sm:text-lg">
-              SJCOG is the planning, financing, and coordinating agency for the San Joaquin
-              region — a joint-powers authority representing Escalon, Lathrop, Lodi, Manteca,
-              Mountain House, Ripon, San Joaquin County, Stockton, and Tracy.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="#"
-                onClick={stop}
-                className={`inline-flex min-h-11 items-center gap-2 rounded-md bg-sunset-amber px-6 py-3 text-sm font-bold text-civic-dark shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white ${focusRing} focus-visible:ring-white focus-visible:ring-offset-civic`}
-              >
-                <CalendarDays className="size-4" aria-hidden="true" />
-                View Agendas &amp; Minutes
-              </a>
-              <a
-                href="#"
-                onClick={stop}
-                className={`inline-flex min-h-11 items-center gap-2 rounded-md border-2 border-white/70 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-civic ${focusRing} focus-visible:ring-white focus-visible:ring-offset-civic`}
-              >
-                <Coins className="size-4" aria-hidden="true" />
-                Explore Measure K
-              </a>
-            </div>
+          <div className="relative mx-auto max-w-7xl px-4 pb-32 pt-20 sm:px-6 lg:pb-40 lg:pt-28">
+            <div className="max-w-3xl">
+              <p className="mb-6 inline-flex animate-fade-in items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90 backdrop-blur-md">
+                <span aria-hidden="true" className="size-1.5 rounded-full bg-sunset-amber" />
+                Regional Planning Agency · Est. 1968
+              </p>
+              <h1 className="animate-fade-in text-balance text-4xl font-extrabold leading-[1.02] tracking-[-0.03em] text-white sm:text-6xl lg:text-[4.25rem]">
+                Planning transportation, housing, and habitat for the{" "}
+                <span className="bg-[linear-gradient(100deg,#E8A33D,#D9782D_60%,#f5d7a8)] bg-clip-text text-transparent">
+                  San Joaquin region.
+                </span>
+              </h1>
+              <p className="mt-7 max-w-2xl animate-fade-in text-pretty text-base leading-relaxed text-white/80 sm:text-lg">
+                SJCOG is the planning, financing, and coordinating agency for the San Joaquin
+                region — a joint-powers authority representing Escalon, Lathrop, Lodi, Manteca,
+                Mountain House, Ripon, San Joaquin County, Stockton, and Tracy.
+              </p>
+              <div className="mt-9 flex flex-wrap items-center gap-3">
+                <a
+                  href="#"
+                  onClick={stop}
+                  className={`group inline-flex min-h-12 items-center gap-2 rounded-full bg-sunset-amber px-7 text-sm font-bold text-civic-dark shadow-float transition-all hover:-translate-y-0.5 hover:bg-white ${focusRing} focus-visible:ring-white focus-visible:ring-offset-civic`}
+                >
+                  <CalendarDays className="size-4" aria-hidden="true" />
+                  View Agendas &amp; Minutes
+                  <ArrowRight
+                    className="size-4 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </a>
+                <a
+                  href="#"
+                  onClick={stop}
+                  className={`inline-flex min-h-12 items-center gap-2 rounded-full border border-white/40 bg-white/5 px-7 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white hover:text-civic ${focusRing} focus-visible:ring-white focus-visible:ring-offset-civic`}
+                >
+                  <Coins className="size-4" aria-hidden="true" />
+                  Explore Measure K
+                </a>
+              </div>
 
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              role="search"
-              className="mx-auto mt-10 flex max-w-2xl items-center gap-2 rounded-xl border border-civic/15 bg-white p-2 shadow-lg shadow-civic/5"
-            >
-              <label htmlFor="hero-search" className="sr-only">
-                Search programs, board agendas, documents, or projects
-              </label>
-              <Search className="ml-2 size-5 shrink-0 text-civic/60" aria-hidden="true" />
-              <input
-                id="hero-search"
-                type="search"
-                placeholder="Search programs, board agendas, documents, or projects..."
-                className={`min-w-0 flex-1 bg-transparent py-2 text-sm text-foreground placeholder:text-foreground/45 ${focusRing} focus-visible:ring-offset-0`}
-              />
-              <button
-                type="submit"
-                className={`inline-flex min-h-11 items-center rounded-lg bg-civic px-5 text-sm font-semibold text-white hover:bg-civic-dark ${focusRing}`}
+              <form
+                onSubmit={(e) => e.preventDefault()}
+                role="search"
+                className="mt-10 flex max-w-2xl items-center gap-2 rounded-2xl border border-white/25 bg-white/12 p-2 shadow-float backdrop-blur-xl"
               >
-                Search
-              </button>
-            </form>
+                <label htmlFor="hero-search" className="sr-only">
+                  Search programs, board agendas, documents, or projects
+                </label>
+                <Search className="ml-3 size-5 shrink-0 text-white/70" aria-hidden="true" />
+                <input
+                  id="hero-search"
+                  type="search"
+                  placeholder="Search programs, board agendas, documents, or projects..."
+                  className={`min-w-0 flex-1 bg-transparent py-2.5 text-sm text-white placeholder:text-white/65 ${focusRing} focus-visible:ring-white focus-visible:ring-offset-0`}
+                />
+                <button
+                  type="submit"
+                  className={`inline-flex min-h-11 items-center rounded-xl bg-white px-5 text-sm font-bold text-civic transition-colors hover:bg-sunset-amber hover:text-civic-dark ${focusRing} focus-visible:ring-white focus-visible:ring-offset-civic`}
+                >
+                  Search
+                </button>
+              </form>
+            </div>
           </div>
         </section>
 
         {/* Quick access */}
-        <section aria-labelledby="quick-access" className="border-y border-black/5 bg-white">
-          <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+        <section aria-labelledby="quick-access" className="relative z-10 -mt-20 lg:-mt-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <h2 id="quick-access" className="sr-only">
               Quick access
             </h2>
-            <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            <ul className="grid grid-cols-2 gap-2 rounded-3xl border border-line bg-white/95 p-3 shadow-float backdrop-blur-xl sm:grid-cols-3 lg:grid-cols-6">
               {quickAccess.map(({ label, icon: Icon }) => (
                 <li key={label}>
                   <a
                     href="#"
                     onClick={stop}
-                    className={`group flex h-full flex-col items-center gap-3 rounded-xl border border-black/8 bg-sand px-4 py-6 text-center transition-all hover:-translate-y-0.5 hover:border-civic/30 hover:shadow-md ${focusRing}`}
+                    className={`group flex h-full flex-col items-center gap-3 rounded-2xl px-4 py-6 text-center transition-all hover:-translate-y-0.5 hover:bg-sand ${focusRing}`}
                   >
-                    <span className="inline-flex size-11 items-center justify-center rounded-full bg-civic/8 text-civic transition-colors group-hover:bg-civic group-hover:text-white">
+                    <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-[linear-gradient(140deg,rgba(9,78,119,0.10),rgba(44,124,156,0.16))] text-civic transition-all group-hover:bg-[linear-gradient(140deg,#094E77,#2C7C9C)] group-hover:text-white group-hover:shadow-lift">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
                     <span className="text-sm font-semibold text-foreground/85">{label}</span>
@@ -557,6 +567,7 @@ function Index() {
             </ul>
           </div>
         </section>
+
 
         {/* Featured programs */}
         <section aria-labelledby="programs-heading" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
@@ -570,7 +581,11 @@ function Index() {
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {programs.map((p, i) => (
               <Reveal key={p.title} delay={i * 80}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/8 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-civic/15">
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 top-0 z-10 h-1 origin-left scale-x-0 bg-[linear-gradient(90deg,#D9782D,#E8A33D,#4B3B78)] transition-transform duration-500 group-hover:scale-x-100"
+                  />
                   <div className="relative overflow-hidden">
                     <img
                       src={p.img}
@@ -578,12 +593,17 @@ function Index() {
                       loading="lazy"
                       width={1024}
                       height={640}
-                      className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,57,90,0.5),transparent_55%)]"
                     />
                     <span className="absolute left-4 top-4 inline-flex rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-civic backdrop-blur-sm">
                       {p.tag}
                     </span>
                   </div>
+
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-lg font-bold text-civic">{p.title}</h3>
                     <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/70">{p.body}</p>
@@ -643,7 +663,7 @@ function Index() {
                 aria-labelledby="tab-news"
                 className="mt-8 grid gap-6 lg:grid-cols-3"
               >
-                <article className="group overflow-hidden rounded-2xl border border-black/8 bg-sand shadow-sm transition-shadow hover:shadow-lg lg:col-span-2 lg:row-span-2">
+                <article className="group overflow-hidden rounded-3xl border border-line bg-sand shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift lg:col-span-2 lg:row-span-2">
                   <div className="overflow-hidden">
                     <img
                       src={lead.img}
@@ -674,7 +694,7 @@ function Index() {
                 {news.slice(1).map((n) => (
                   <article
                     key={n.title}
-                    className="group flex gap-4 rounded-2xl border border-black/8 bg-sand p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                    className="group flex gap-4 rounded-3xl border border-line bg-sand p-4 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lift"
                   >
                     <img
                       src={n.img}
@@ -724,7 +744,7 @@ function Index() {
           <form
             onSubmit={(e) => e.preventDefault()}
             role="search"
-            className="mt-8 rounded-2xl border border-black/8 bg-white p-4 shadow-sm"
+            className="mt-8 rounded-3xl border border-line bg-white p-4 shadow-soft"
           >
             <div className="flex items-center gap-2 rounded-lg border border-black/10 bg-sand px-3">
               <Search className="size-4 shrink-0 text-civic/60" aria-hidden="true" />
@@ -757,9 +777,10 @@ function Index() {
             </div>
           </form>
 
-          <ul className="mt-6 divide-y divide-black/8 overflow-hidden rounded-2xl border border-black/8 bg-white">
+          <ul className="mt-6 divide-y divide-line overflow-hidden rounded-3xl border border-line bg-white shadow-soft">
             {documents.map((d) => (
-              <li key={d.title} className="flex flex-wrap items-center gap-4 px-5 py-4">
+              <li key={d.title} className="flex flex-wrap items-center gap-4 px-5 py-4 transition-colors hover:bg-sand">
+
                 <span className="inline-flex items-center gap-2 rounded-md bg-sunset-orange/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-sunset-orange">
                   <FileText className="size-3.5" aria-hidden="true" /> PDF
                 </span>
@@ -792,7 +813,7 @@ function Index() {
               action="View Full Calendar"
             />
             <div className="mt-10 grid gap-8 lg:grid-cols-[20rem_1fr]">
-              <div className="rounded-2xl border border-black/8 bg-sand p-5">
+              <div className="h-fit rounded-3xl border border-line bg-sand p-5 shadow-soft lg:sticky lg:top-28">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-bold text-civic">September 2026</p>
                   <CalendarDays className="size-4 text-civic/60" aria-hidden="true" />
@@ -843,11 +864,12 @@ function Index() {
                 {meetings.map((m) => (
                   <li
                     key={m.name}
-                    className="flex flex-wrap items-center gap-5 rounded-2xl border border-black/8 bg-sand p-5"
+                    className="group flex flex-wrap items-center gap-5 rounded-3xl border border-line bg-sand p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lift"
                   >
-                    <div className="flex size-16 shrink-0 flex-col items-center justify-center rounded-xl bg-civic text-white">
+                    <div className="flex size-16 shrink-0 flex-col items-center justify-center rounded-2xl bg-[linear-gradient(150deg,#094E77,#2C7C9C)] text-white shadow-soft">
                       <span className="text-[10px] font-bold uppercase tracking-wider">Sep</span>
                       <span className="text-xl font-extrabold leading-none">{m.day}</span>
+
                     </div>
                     <div className="min-w-[14rem] flex-1">
                       <h3 className="text-base font-bold text-civic">{m.name}</h3>
@@ -907,9 +929,10 @@ function Index() {
               ].map(({ icon: Icon, title, body, cta }) => (
                 <div
                   key={title}
-                  className="rounded-2xl border border-white/25 bg-white/12 p-6 backdrop-blur-sm"
+                  className="rounded-3xl border border-white/25 bg-white/12 p-6 shadow-float backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white/20"
                 >
                   <Icon className="size-6 text-white" aria-hidden="true" />
+
                   <h3 className="mt-4 text-lg font-bold text-white">{title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-white/85">{body}</p>
                   <a
@@ -962,7 +985,7 @@ function Index() {
               loading="lazy"
               width={1024}
               height={1024}
-              className="h-64 w-full rounded-2xl object-cover shadow-lg shadow-civic/10 sm:h-72"
+              className="h-64 w-full rounded-3xl object-cover shadow-lift sm:h-72"
             />
             <dl className="grid grid-cols-2 gap-4">
               {[
@@ -971,11 +994,12 @@ function Index() {
                 { k: "800K+", v: "Residents served" },
                 { k: "25-yr", v: "RTP/SCS planning horizon" },
               ].map((s) => (
-                <div key={s.v} className="rounded-2xl border border-black/8 bg-white p-6 shadow-sm">
-                  <dt className="text-3xl font-extrabold text-civic sm:text-4xl">{s.k}</dt>
+                <div key={s.v} className="rounded-3xl border border-line bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
+                  <dt className="bg-[linear-gradient(120deg,#094E77,#2C7C9C)] bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl">{s.k}</dt>
                   <dd className="mt-1 text-sm font-medium text-foreground/65">{s.v}</dd>
                 </div>
               ))}
+
             </dl>
             </div>
           </div>
@@ -989,8 +1013,9 @@ function Index() {
             </h2>
             <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-9">
               {memberAgencies.map((a) => (
-                <li key={a} className="flex flex-col items-center gap-3 text-center">
-                  <span className="flex size-14 items-center justify-center rounded-full border-2 border-civic/15 bg-sand text-xs font-extrabold text-civic">
+                <li key={a} className="group flex flex-col items-center gap-3 text-center">
+                  <span className="flex size-16 items-center justify-center rounded-full border border-line bg-sand text-xs font-extrabold text-civic transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-[linear-gradient(150deg,#094E77,#2C7C9C)] group-hover:text-white group-hover:shadow-lift">
+
                     {a
                       .split(" ")
                       .map((w) => w[0])
@@ -1006,8 +1031,13 @@ function Index() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-civic text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
+      <footer className="relative bg-civic text-white">
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#D9782D,#E8A33D,#4B3B78)]"
+        />
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
+
           <div>
             <div className="flex items-center gap-3">
               <img src={logo.url} alt="" aria-hidden="true" className="size-12 rounded-full" />
@@ -1123,19 +1153,30 @@ function SectionHeading({
   return (
     <div className="flex flex-wrap items-end justify-between gap-6">
       <div className="max-w-2xl">
-        <p className="text-xs font-bold uppercase tracking-[0.16em] text-sunset-orange">{eyebrow}</p>
-        <h2 id={id} className="mt-3 text-3xl font-extrabold tracking-tight text-civic sm:text-4xl">
+        <p className="inline-flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-sunset-orange">
+          <span
+            aria-hidden="true"
+            className="h-px w-8 bg-[linear-gradient(90deg,#D9782D,#E8A33D)]"
+          />
+          {eyebrow}
+        </p>
+        <h2 id={id} className="mt-4 text-3xl font-extrabold tracking-[-0.03em] text-civic sm:text-[2.6rem] sm:leading-[1.06]">
           {title}
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-foreground/70 sm:text-base">{sub}</p>
+        <p className="mt-4 text-sm leading-relaxed text-foreground/70 sm:text-base">{sub}</p>
       </div>
       <a
         href="#"
         onClick={stop}
-        className={`inline-flex items-center gap-1.5 rounded-sm text-sm font-bold text-civic hover:text-sunset-orange ${focusRing}`}
+        className={`group inline-flex items-center gap-1.5 rounded-full border border-line px-4 py-2.5 text-sm font-bold text-civic transition-all hover:-translate-y-0.5 hover:bg-civic hover:text-white ${focusRing}`}
       >
-        {action} <ArrowRight className="size-4" aria-hidden="true" />
+        {action}{" "}
+        <ArrowRight
+          className="size-4 transition-transform group-hover:translate-x-1"
+          aria-hidden="true"
+        />
       </a>
+
     </div>
   );
 }
