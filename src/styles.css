@@ -64,6 +64,8 @@
 @theme {
   --font-sans:
     "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display:
+    "Bricolage Grotesque", "Public Sans", ui-sans-serif, system-ui, sans-serif;
   --color-civic: #094e77;
   --color-civic-dark: #06395a;
   --color-civic-light: #0f6a9e;
@@ -72,7 +74,12 @@
   --color-sunset-amber: #e8a33d;
   --color-sunset-indigo: #4b3b78;
   --color-sand: #f9f8f6;
+  --color-line: rgba(9, 78, 119, 0.12);
+  --shadow-soft: 0 1px 2px rgba(9, 78, 119, 0.06), 0 8px 24px -12px rgba(9, 78, 119, 0.18);
+  --shadow-lift: 0 2px 4px rgba(9, 78, 119, 0.05), 0 28px 60px -28px rgba(9, 78, 119, 0.38);
+  --shadow-float: 0 32px 70px -30px rgba(9, 78, 119, 0.45);
 }
+
 
 :root {
   --radius: 0.5rem;
@@ -150,9 +157,22 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
   }
 }
+
