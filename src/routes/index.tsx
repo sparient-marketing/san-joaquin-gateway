@@ -462,22 +462,29 @@ function Index() {
       <main id="main">
         {/* Hero */}
         <section className="relative overflow-hidden">
+          <img
+            src={heroRegion}
+            alt="Aerial view of a San Joaquin County highway interchange and farmland at sunset"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 size-full scale-105 object-cover"
+          />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[linear-gradient(120deg,#4B3B78_0%,#094E77_38%,#2C7C9C_62%,#D9782D_88%,#E8A33D_100%)] opacity-[0.13]"
+            className="absolute inset-0 bg-[linear-gradient(120deg,rgba(75,59,120,0.92)_0%,rgba(9,78,119,0.88)_45%,rgba(217,120,45,0.72)_100%)]"
           />
           <div
             aria-hidden="true"
             className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent"
           />
           <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 lg:py-28">
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-civic/20 bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-civic">
+            <p className="mb-5 inline-flex animate-fade-in items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm">
               Regional Planning Agency · Est. 1968
             </p>
-            <h1 className="text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-civic sm:text-5xl lg:text-6xl">
+            <h1 className="animate-fade-in text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-6xl">
               Planning transportation, housing, and habitat for the San Joaquin region.
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-pretty text-base leading-relaxed text-foreground/75 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-3xl animate-fade-in text-pretty text-base leading-relaxed text-white/90 sm:text-lg">
               SJCOG is the planning, financing, and coordinating agency for the San Joaquin
               region — a joint-powers authority representing Escalon, Lathrop, Lodi, Manteca,
               Mountain House, Ripon, San Joaquin County, Stockton, and Tracy.
@@ -486,7 +493,7 @@ function Index() {
               <a
                 href="#"
                 onClick={stop}
-                className={`inline-flex min-h-11 items-center gap-2 rounded-md bg-civic px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-civic-dark ${focusRing}`}
+                className={`inline-flex min-h-11 items-center gap-2 rounded-md bg-sunset-amber px-6 py-3 text-sm font-bold text-civic-dark shadow-lg transition-all hover:-translate-y-0.5 hover:bg-white ${focusRing} focus-visible:ring-white focus-visible:ring-offset-civic`}
               >
                 <CalendarDays className="size-4" aria-hidden="true" />
                 View Agendas &amp; Minutes
@@ -494,7 +501,7 @@ function Index() {
               <a
                 href="#"
                 onClick={stop}
-                className={`inline-flex min-h-11 items-center gap-2 rounded-md border-2 border-civic px-6 py-3 text-sm font-semibold text-civic transition-colors hover:bg-civic/5 ${focusRing}`}
+                className={`inline-flex min-h-11 items-center gap-2 rounded-md border-2 border-white/70 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-civic ${focusRing} focus-visible:ring-white focus-visible:ring-offset-civic`}
               >
                 <Coins className="size-4" aria-hidden="true" />
                 Explore Measure K
@@ -626,11 +633,16 @@ function Index() {
                 className="mt-8 grid gap-6 lg:grid-cols-3"
               >
                 <article className="group overflow-hidden rounded-2xl border border-black/8 bg-sand shadow-sm transition-shadow hover:shadow-lg lg:col-span-2 lg:row-span-2">
-                  <div
-                    className={`h-56 w-full bg-gradient-to-br ${lead.grad} lg:h-72`}
-                    role="img"
-                    aria-label="Photograph placeholder: SR 99/120 Connector construction at sunset"
-                  />
+                  <div className="overflow-hidden">
+                    <img
+                      src={lead.img}
+                      alt={lead.alt}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:h-72"
+                    />
+                  </div>
                   <div className="p-6">
                     <div className="flex flex-wrap items-center gap-3 text-xs font-semibold">
                       <span className="rounded-full bg-civic/10 px-3 py-1 text-civic">{lead.category}</span>
@@ -651,12 +663,15 @@ function Index() {
                 {news.slice(1).map((n) => (
                   <article
                     key={n.title}
-                    className="flex gap-4 rounded-2xl border border-black/8 bg-sand p-4 shadow-sm transition-shadow hover:shadow-md"
+                    className="group flex gap-4 rounded-2xl border border-black/8 bg-sand p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                   >
-                    <div
-                      className={`hidden size-20 shrink-0 rounded-xl bg-gradient-to-br sm:block ${n.grad}`}
-                      role="img"
-                      aria-label={`Photograph placeholder for: ${n.title}`}
+                    <img
+                      src={n.img}
+                      alt={n.alt}
+                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      className="hidden size-20 shrink-0 rounded-xl object-cover transition-transform duration-300 group-hover:scale-105 sm:block"
                     />
                     <div>
                       <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold">
