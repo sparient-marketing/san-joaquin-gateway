@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Search,
   Users,
@@ -32,6 +32,18 @@ import {
   Phone,
 } from "lucide-react";
 import logo from "@/assets/sjcog-logo.asset.json";
+import heroRegion from "@/assets/hero-region.jpg";
+import progRtp from "@/assets/prog-rtp.jpg";
+import progConnector from "@/assets/prog-connector.jpg";
+import progTransit from "@/assets/prog-transit.jpg";
+import progDibs from "@/assets/prog-dibs.jpg";
+import progEzhub from "@/assets/prog-ezhub.jpg";
+import progFtip from "@/assets/prog-ftip.jpg";
+import newsHousing from "@/assets/news-housing.jpg";
+import newsRail from "@/assets/news-rail.jpg";
+import newsMobility from "@/assets/news-mobility.jpg";
+import newsEngagement from "@/assets/news-engagement.jpg";
+import aboutBoard from "@/assets/about-board.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -93,31 +105,43 @@ const programs = [
   {
     title: "2022–2046 RTP/SCS",
     tag: "Long-Range Planning",
+    img: progRtp,
+    alt: "Regional planners reviewing a transportation map",
     body: "The Regional Transportation Plan and Sustainable Communities Strategy sets the 25-year blueprint for how people and goods move through San Joaquin County.",
   },
   {
     title: "SR 99/120 Connector Project",
     tag: "Capital Project",
+    img: progConnector,
+    alt: "Highway interchange under construction with cranes",
     body: "A multi-phase interchange reconstruction in Manteca improving safety, freight reliability, and daily commutes at one of the region's busiest connections.",
   },
   {
     title: "Transit Planning",
     tag: "Mobility",
+    img: progTransit,
+    alt: "Riders boarding a city bus at a transit stop",
     body: "Coordinated planning with local operators, including the Regional Transit Systems Plan and support for intercity and commuter rail service expansion.",
   },
   {
     title: "dibs",
     tag: "Rideshare & Smart Travel",
+    img: progDibs,
+    alt: "Cyclists and carpoolers at a park-and-ride lot",
     body: "SJCOG's commuter program offering carpool matching, vanpool subsidies, bike incentives, and rewards for choosing alternatives to driving alone.",
   },
   {
     title: "EZHub",
     tag: "Digital Tools",
+    img: progEzhub,
+    alt: "Person using an online mapping dashboard on a laptop",
     body: "A one-stop online portal for jurisdictions and consultants to submit, track, and manage regional project data and funding requests.",
   },
   {
     title: "FTIP",
     tag: "Programming",
+    img: progFtip,
+    alt: "Road crew repaving a street",
     body: "The Federal Transportation Improvement Program lists every federally funded surface transportation project in the region over a four-year cycle.",
   },
 ];
@@ -129,7 +153,8 @@ const news = [
     category: "Awards",
     excerpt:
       "The regional partnership behind the SR 99/120 Connector was recognized for innovative project delivery and interagency collaboration.",
-    grad: "from-sunset-orange to-sunset-amber",
+    img: progConnector,
+    alt: "SR 99/120 Connector interchange construction",
   },
   {
     title: "Nearly $12 million to be used to unlock 421 affordable homes across San Joaquin County",
@@ -137,7 +162,8 @@ const news = [
     category: "Housing",
     excerpt:
       "Regional Early Action Planning funds will support infrastructure and predevelopment work for affordable housing in five jurisdictions.",
-    grad: "from-teal to-civic",
+    img: newsHousing,
+    alt: "Newly built homes on a California residential street",
   },
   {
     title: "SJCOG Board OKs $10 million investment in Valley Link to expand transportation options",
@@ -145,7 +171,8 @@ const news = [
     category: "Board Action",
     excerpt:
       "The Board approved a funding commitment advancing passenger rail service between the Tri-Valley and San Joaquin County.",
-    grad: "from-civic to-sunset-indigo",
+    img: newsRail,
+    alt: "Passenger train at a station platform",
   },
   {
     title: "Coming soon: San Joaquin's first clean mobility hub",
@@ -153,7 +180,8 @@ const news = [
     category: "Air Quality",
     excerpt:
       "The hub will combine EV charging, e-bike access, and transit connections at a single neighborhood-scale location.",
-    grad: "from-sunset-amber to-teal",
+    img: newsMobility,
+    alt: "EV charging station with bikes and a bus shelter",
   },
   {
     title: "Help SJCOG plan for region's transportation future",
@@ -161,7 +189,8 @@ const news = [
     category: "Public Engagement",
     excerpt:
       "Residents are invited to share priorities for the next Regional Transportation Plan through an online survey and open houses.",
-    grad: "from-sunset-indigo to-civic-light",
+    img: newsEngagement,
+    alt: "Residents at a community planning workshop",
   },
 ];
 
