@@ -63,9 +63,10 @@
 
 @theme {
   --font-sans:
-    "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --font-display:
-    "Bricolage Grotesque", "Public Sans", ui-sans-serif, system-ui, sans-serif;
+    "Archivo", "Inter", ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+
   --color-civic: #094e77;
   --color-civic-dark: #06395a;
   --color-civic-light: #0f6a9e;
@@ -170,9 +171,12 @@
 
   h1,
   h2,
-  h3 {
+  h3,
+  h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.025em;
+    font-weight: 600;
+    letter-spacing: -0.018em;
   }
+
 }
 
