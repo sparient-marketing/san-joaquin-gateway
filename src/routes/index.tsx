@@ -570,7 +570,7 @@ function Index() {
 
 
         {/* Featured programs */}
-        <section aria-labelledby="programs-heading" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
+        <section aria-labelledby="programs-heading" className="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 lg:pb-20 lg:pt-14">
           <SectionHeading
             id="programs-heading"
             eyebrow="What we do"
