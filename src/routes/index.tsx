@@ -477,7 +477,7 @@ function Index() {
             aria-hidden="true"
             className="absolute inset-x-0 bottom-0 h-56 bg-[linear-gradient(to_top,rgba(6,57,90,0.9),transparent)]"
           />
-          <div className="relative mx-auto max-w-7xl px-4 pb-32 pt-20 sm:px-6 lg:pb-40 lg:pt-28">
+          <div className="relative mx-auto max-w-7xl px-4 pb-28 pt-10 sm:px-6 lg:pb-32 lg:pt-14">
             <div className="max-w-3xl">
               <p className="mb-6 inline-flex animate-fade-in items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90 backdrop-blur-md">
                 <span aria-hidden="true" className="size-1.5 rounded-full bg-sunset-amber" />
@@ -570,7 +570,7 @@ function Index() {
 
 
         {/* Featured programs */}
-        <section aria-labelledby="programs-heading" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
+        <section aria-labelledby="programs-heading" className="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 lg:pb-20 lg:pt-14">
           <SectionHeading
             id="programs-heading"
             eyebrow="What we do"
