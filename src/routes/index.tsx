@@ -24,6 +24,7 @@ import {
   Building2,
   Plane,
   Home,
+  BarChart3,
   Route as RouteIcon,
   Facebook,
   Instagram,
@@ -80,6 +81,7 @@ const programsMenu = [
   { label: "Airport Land Use Planning", icon: Plane },
   { label: "Regional Air Quality", icon: Leaf },
   { label: "Habitat Conservation (SJMSCP)", icon: Building2 },
+  { label: "Demographic & Economic Data", icon: BarChart3 },
 ];
 
 const navItems = [
