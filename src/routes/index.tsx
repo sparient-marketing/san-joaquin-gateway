@@ -32,7 +32,7 @@ import {
   Linkedin,
   Phone,
 } from "lucide-react";
-const logo = { url: "/sjcog-logo.jpeg" };
+import logo from "@/assets/sjcog-logo.jpeg";
 import heroRegion from "@/assets/hero-region.jpg";
 import progRtp from "@/assets/prog-rtp.jpg";
 import progConnector from "@/assets/prog-connector.jpg";
@@ -342,7 +342,7 @@ function Index() {
             className={`flex items-center gap-3 rounded-md ${focusRing}`}
           >
             <img
-              src={logo.url}
+              src={logo}
               alt="San Joaquin Council of Governments seal"
               width={56}
               height={56}
@@ -1042,7 +1042,7 @@ function Index() {
 
           <div>
             <div className="flex items-center gap-3">
-              <img src={logo.url} alt="" aria-hidden="true" className="size-12 rounded-full" />
+              <img src={logo} alt="" aria-hidden="true" className="size-12 rounded-full" />
               <span className="text-lg font-extrabold">SJCOG</span>
             </div>
             <address className="mt-4 space-y-2 text-sm not-italic text-white/80">
