@@ -32,7 +32,7 @@ import {
   Linkedin,
   Phone,
 } from "lucide-react";
-import logo from "@/assets/sjcog-logo.asset.json";
+const logo = { url: "/sjcog-logo.jpeg" };
 import heroRegion from "@/assets/hero-region.jpg";
 import progRtp from "@/assets/prog-rtp.jpg";
 import progConnector from "@/assets/prog-connector.jpg";
